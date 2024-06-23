@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        h2 {
+            width: 100%;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin: 0 0 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Increased width */
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .error-message {
+            color: #dc3545; /* Bootstrap's danger color */
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <span class="error-message">{{ form.username.errors }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="id_password1">Password:</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <span class="error-message">{{ form.password1.errors }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="id_password2">Confirm Password:</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <span class="error-message">{{ form.password2.errors }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <span class="error-message">{{ form.email.errors }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="id_phone_number">Phone Number:</label>
+            {{ form.phone_number }}
+            {% if form.phone_number.errors %}
+                <span class="error-message">{{ form.phone_number.errors }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="id_address">Address:</label>
+            {{ form.address }}
+            {% if form.address.errors %}
+                <span class="error-message">{{ form.address.errors }}</span>
+            {% endif %}
+        </div>
+        <div>
+            <label for="id_role">Role:</label>
+            {{ form.role }}
+            {% if form.role.errors %}
+                <span class="error-message">{{ form.role.errors }}</span>
+            {% endif %}
+        </div>
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+</html>
